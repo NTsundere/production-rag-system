@@ -1,0 +1,30 @@
+# Core
+fastapi>=0.115.6,<1.0
+uvicorn[standard]>=0.34.0,<1.0
+pydantic>=2.10.4,<3.0
+pydantic-settings>=2.7.0,<3.0
+python-dotenv>=1.0.1,<2.0
+
+# LangGraph & LangChain
+langgraph>=0.2.60,<0.3
+langchain>=0.3.13,<0.4
+langchain-community>=0.3.13,<0.4
+langchain-google-genai>=2.0.0,<3.0
+langchain-huggingface>=0.1.0,<0.2
+langchain-qdrant>=0.2.0,<0.3
+
+# Vector DB & Embeddings
+qdrant-client>=1.12.1,<2.0
+fastembed>=0.4.2,<0.5
+sentence-transformers>=3.3.1,<4.0
+rank-bm25>=0.2.2,<1.0
+
+# RAGAS & Evaluation
+ragas>=0.2.9,<0.3
+datasets>=3.2.0,<4.0
+langfuse>=2.57.0,<3.0
+
+# Utils
+pypdf>=5.1.0,<6.0
+tiktoken>=0.8.0,<1.0
+tenacity>=9.0.0,<10.0

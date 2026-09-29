@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+.pytest_cache/
+.coverage
+htmlcov/
+data/qdrant_storage/
+logs/
+*.log
+.DS_Store
+.idea/
+.vscode/
+.coverage

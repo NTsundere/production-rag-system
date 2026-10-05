@@ -1,22 +1,21 @@
 from typing import Optional
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from app.config import settings
 
 
-def get_llm(temperature: float = 0.0, model: Optional[str] = None) -> ChatGoogleGenerativeAI:
-    """Фабрика LLM на базе Google Gemini (REST)."""
-    return ChatGoogleGenerativeAI(
-        model=model or settings.gemini_model,
+def get_llm(temperature: float = 0.0, model: Optional[str] = None) -> ChatOpenAI:
+    return ChatOpenAI(
+        model=model or settings.ollama_model,
         temperature=temperature,
-        google_api_key=settings.google_api_key,
-        transport="rest",
+        base_url=settings.ollama_base_url,
+        api_key="ollama",
     )
 
 
-def get_eval_llm() -> ChatGoogleGenerativeAI:
-    return ChatGoogleGenerativeAI(
-        model=settings.gemini_model,
+def get_eval_llm() -> ChatOpenAI:
+    return ChatOpenAI(
+        model=settings.ollama_model,
         temperature=0.0,
-        google_api_key=settings.google_api_key,
-        transport="rest",
+        base_url=settings.ollama_base_url,
+        api_key="ollama",
     )

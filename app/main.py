@@ -34,7 +34,7 @@ async def query(request: QueryRequest):
             answer=state["answer"],
             sources=state.get("sources", []),
             latency_ms=round(latency, 2),
-            model=settings.gemini_model,
+            model=settings.ollama_model,
         )
     except Exception as e:
         logger.error(f"Query failed: {e}")

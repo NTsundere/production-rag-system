@@ -13,7 +13,6 @@ def reciprocal_rank_fusion(
     sparse_results: List[Dict[str, Any]],
     k: int = 60,
 ) -> List[Dict[str, Any]]:
-    # Собираем по content: сохраняем и score, и source
     scores: Dict[str, float] = {}
     sources: Dict[str, str] = {}
 
@@ -46,7 +45,6 @@ def hybrid_search(query: str) -> List[Dict[str, Any]]:
     )
     embedder = get_embedder()
 
-    # Dense retrieval (новый API в qdrant-client 1.16+)
     query_vector = embedder.embed_query(query)
     dense_response = client.query_points(
         collection_name=settings.qdrant_collection,
@@ -58,7 +56,6 @@ def hybrid_search(query: str) -> List[Dict[str, Any]]:
         for h in dense_response.points
     ]
 
-    # Sparse retrieval (BM25)
     all_points = client.scroll(
         collection_name=settings.qdrant_collection, limit=10000
     )[0]
